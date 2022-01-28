@@ -5,7 +5,7 @@ class Fetch {
       //request to url
   
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}&units=metric`
       );
   
       const data = await response.json();
@@ -34,7 +34,9 @@ class Fetch {
               <div class="card-body justify-content-center">
                   <h5 class="card-title">${data.name}</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Highs of ${data.main.temp_max}. Lows of ${data.main.temp_min}</h6>
-                  <p class="card-text ">Weather conditions are described as: ${data.weather[0].description}</p>
+                  <p class="card-text ">Weather conditions: ${data.weather[0].description}</p>
+                  <p class="card-text ">Wind Speed: ${data.wind.speed} MPH</p>
+                  <p class="card-text ">Humidity: ${data.main.humidity} %</p>
                   
               </div>
           </div>
