@@ -7,6 +7,10 @@ class Fetch {
       const response = await fetch(
         `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}&units=metric`
       );
+
+      const fiveDayResponse = await fetch(
+        `api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${apiKey}`
+      );
   
       const data = await response.json();
   
@@ -15,6 +19,27 @@ class Fetch {
       return data;
     }
   }
+
+  // class Fetch {
+  //   async getCurrent(input) {
+  //     // const myKey = "d65886cf52c458b65f7f5a093e229f6b";
+  
+  //     //request to url
+  
+  //     const fiveDayResponse = await fetch(
+  //       `api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${apiKey}`
+  //     );
+  
+  //     const fiveDayData = await fiveDayResponse.json();
+  
+  //     console.log(data);
+  
+  //     return fiveDayData;
+  //   }
+  // }
+
+  var currentDate = moment().format("dddd MMM Do YYYY, h:mm a ");
+$("#currentDay").append(currentDate);
 
   class UI {
     constructor() {
@@ -30,6 +55,17 @@ class Fetch {
   
       this.uiContainer.innerHTML = `
           
+          <div class="card mx-auto mt-5" style="width: 18rem;">
+              <div class="card-body justify-content-center">
+                  <h5 class="card-title">${data.name}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted">Highs of ${data.main.temp_max}. Lows of ${data.main.temp_min}</h6>
+                  <p class="card-text ">Weather conditions: ${data.weather[0].description}</p>
+                  <p class="card-text ">Wind Speed: ${data.wind.speed} MPH</p>
+                  <p class="card-text ">Humidity: ${data.main.humidity} %</p>
+                  
+              </div>
+          </div>
+
           <div class="card mx-auto mt-5" style="width: 18rem;">
               <div class="card-body justify-content-center">
                   <h5 class="card-title">${data.name}</h5>
