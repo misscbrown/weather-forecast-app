@@ -30,6 +30,19 @@ createSearchHistoryButtons();
       getCurrentAndForecast(latitude, longitude, input);
     });
     }
+
+function getCurrentAndForecast(lat, lon, input) {
+  fetch(
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${myKey}&units=metric`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      console.log("One Call API", data);
+      createCurrentWeatherUI(data.current, input);
+      createFiveDayForecastUI(data.daily);
+    });
   }
 
   // class Fetch {
