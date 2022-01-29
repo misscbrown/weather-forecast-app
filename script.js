@@ -16,9 +16,19 @@ localStorage.setItem("search-history", JSON.stringify(previousSearchHistory))
 createSearchHistoryButtons();
   
   
+  fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}&units=metric`
+  )
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
       console.log(data);
+      var latitude = data.coord.lat;
+      var longitude = data.coord.lon;
   
-      return data;
+      getCurrentAndForecast(latitude, longitude, input);
+    });
     }
   }
 
