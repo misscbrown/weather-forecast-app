@@ -45,32 +45,15 @@ function getCurrentAndForecast(lat, lon, input) {
     });
   }
 
-  // class Fetch {
-  //   async getCurrent(input) {
-  //     // const myKey = "d65886cf52c458b65f7f5a093e229f6b";
+function createCurrentWeatherUI(currentWeather, input) {
   
-  //     //request to url
-  
-  //     const fiveDayResponse = await fetch(
-  //       `api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${apiKey}`
-  //     );
-  
-  //     const fiveDayData = await fiveDayResponse.json();
-  
-  //     console.log(data);
-  
-  //     return fiveDayData;
-  //   }
-  // }
-
-  var currentDate = moment().format("dddd MMM Do YYYY, h:mm a ");
-$("#currentDay").append(currentDate);
-
-  class UI {
-    constructor() {
-      this.uiContainer = document.getElementById("content");
-      this.city;
-      this.defaultCity = "London";
+  var uvButton; 
+  if (currentWeather.uvi < 3){
+    uvButton = ' btn-success'
+   } else if(currentWeather.uvi > 3) {
+     uvButton = 'btm-warning';
+     } else {currentWeather.uvi > 6 
+      uvButton = 'btn-danger';
     }
   
     populateUI(data) {
