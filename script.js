@@ -56,23 +56,18 @@ function createCurrentWeatherUI(currentWeather, input) {
       uvButton = 'btn-danger';
     }
   
-    populateUI(data) {
-      //de-structure vars
-  
-      //add them to inner HTML
-  
-      this.uiContainer.innerHTML = `
-          
+  currentWeatherEl.innerHTML = `
           <div class="card mx-auto mt-5" style="width: 18rem;">
               <div class="card-body justify-content-center">
-                  <h5 class="card-title">${data.name}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Highs of ${data.main.temp_max}. Lows of ${data.main.temp_min}</h6>
-                  <p class="card-text ">Weather conditions: ${data.weather[0].description}</p>
-                  <p class="card-text ">Wind Speed: ${data.wind.speed} MPH</p>
-                  <p class="card-text ">Humidity: ${data.main.humidity} %</p>
-                  
+            <h5 class="card-title">${input}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Temp: ${currentWeather.temp}</h6>
+            <img src="http://openweathermap.org/img/w/${currentWeather.weather[0].icon}.png">
+            <p class="card-text ">Wind Speed: ${currentWeather.wind_speed} MPH</p>
+          <p class="card-text ">Humidity: ${currentWeather.humidity} %</p>
+          <button class=${uvButton}>UV: ${currentWeather.uvi}<button/>
               </div>
-          </div>
+    </div>`;
+}
 
           <div class="card mx-auto mt-5" style="width: 18rem;">
               <div class="card-body justify-content-center">
