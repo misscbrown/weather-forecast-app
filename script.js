@@ -4,12 +4,12 @@ const btn = document.getElementById("previousbtn");
 let currentWeatherEl = document.getElementById("current");
 let futureWeatherEl = document.getElementById("forecast");
       const myKey = "d65886cf52c458b65f7f5a093e229f6b";
+const previousSearchHistory = JSON.parse(localStorage.getItem("search-history")) || [];
   
-      //request to url
+var currentDate = moment().format("dddd MMM Do YYYY, h:mm a ");
+$("#currentDay").append(currentDate);
   
-      const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${input}&appid=${myKey}&units=metric`
-      );
+function getCurrentSearchCoords(input) {
 
       const fiveDayResponse = await fetch(
         `api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${apiKey}`
