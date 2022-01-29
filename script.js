@@ -91,30 +91,11 @@ function createFiveDayForecastUI(forecast) {
     }
     }
   
-    getFromLS() {
-      if (localStorage.getItem("city" == null)) {
-        return this.defaultCity;
-      } else {
-        this.city = JSON.parse(localStorage.getItem("city"));
+function createSearchHistoryButtons(){
+  console.log(previousSearchHistory)
+  //use search history and render the buttons onto the page
       }
-  
-      return this.city;
-    }
-  
-    clearLS() {
-      localStorage.clear();
-    }
-  }
 
-  //inst classes//
-
-const ft = new Fetch();
-const ui = new UI();
-
-//add event listeners//
-
-const search = document.getElementById("searchUser");
-const button = document.getElementById("submit");
 button.addEventListener("click", () => {
   const currentVal = search.value;
 
