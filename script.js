@@ -87,12 +87,8 @@ function createFiveDayForecastUI(forecast) {
               </div>
 </div>`;
   
-    clearUI() {
-      uiContainer.innerHTML = "";
+    futureWeatherEl.appendChild(forecastCard);
     }
-  
-    saveToLS(data) {
-      localStorage.setItem("city", JSON.stringify(data));
     }
   
     getFromLS() {
