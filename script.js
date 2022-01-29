@@ -69,20 +69,23 @@ function createCurrentWeatherUI(currentWeather, input) {
     </div>`;
 }
 
-          <div class="card mx-auto mt-5" style="width: 18rem;">
+function createFiveDayForecastUI(forecast) {
+  futureWeatherEl.innerHTML = ''
+  console.log(forecast);
+  for (var i = 0; i < 5; i++) {
+    var forecastDate = moment().add(i + 1, 'days')
+    var forecastCard = document.createElement("div");
+    forecastCard.setAttribute("class", "col-lg-2");
+    forecastCard.innerHTML = `
+    <div class="card mx-auto mt-5">
               <div class="card-body justify-content-center">
-                  <h5 class="card-title">${data.name}</h5>
-                  <h6 class="card-subtitle mb-2 text-muted">Highs of ${data.main.temp_max}. Lows of ${data.main.temp_min}</h6>
-                  <p class="card-text ">Weather conditions: ${data.weather[0].description}</p>
-                  <p class="card-text ">Wind Speed: ${data.wind.speed} MPH</p>
-                  <p class="card-text ">Humidity: ${data.main.humidity} %</p>
-                  
+    <h6 class="card-subtitle mb-2 text-muted">${forecastDate}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">Temp: ${forecast[i].temp.day}</h6>
+        <img src="http://openweathermap.org/img/w/${forecast[i].weather[0].icon}.png">
+        <p class="card-text ">Wind Speed: ${forecast[i].wind_speed} MPH</p>
+      <p class="card-text ">Humidity: ${forecast[i].humidity} %</p>
               </div>
-          </div>
-          
-          
-          `;
-    }
+</div>`;
   
     clearUI() {
       uiContainer.innerHTML = "";
