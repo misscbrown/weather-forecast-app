@@ -1,5 +1,8 @@
-class Fetch {
-    async getCurrent(input) {
+const search = document.getElementById("searchUser");
+const button = document.getElementById("submit");
+const btn = document.getElementById("previousbtn");
+let currentWeatherEl = document.getElementById("current");
+let futureWeatherEl = document.getElementById("forecast");
       const myKey = "d65886cf52c458b65f7f5a093e229f6b";
   
       //request to url
