@@ -11,11 +11,10 @@ $("#currentDay").append(currentDate);
   
 function getCurrentSearchCoords(input) {
 
-      const fiveDayResponse = await fetch(
-        `api.openweathermap.org/data/2.5/forecast?q=${input}&appid=${apiKey}`
-      );
+previousSearchHistory.push(input);
+localStorage.setItem("search-history", JSON.stringify(previousSearchHistory))
+createSearchHistoryButtons();
   
-      const data = await response.json();
   
       console.log(data);
   
