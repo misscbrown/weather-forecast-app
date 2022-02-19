@@ -30,5 +30,7 @@ This weather app was created using javascript, bootstrap with a bootswatch theme
 
 View deployment here: https://misscbrown.github.io/weather-forecast-app/
 
+Contact: djmisscbrown@hotmail.com
+
 ![screenshot](/Images/screenshot1.png)
 ![screenshot](/Images/screenshot2.png)
